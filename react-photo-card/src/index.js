@@ -8,6 +8,7 @@ function App() {
       <Avatar />
       <div className="data"></div>
       <Intro />
+
       <SkillList />
     </div>
   );
@@ -15,17 +16,18 @@ function App() {
 
 function Avatar() {
   return (
-    <div className="container">
-      <h1>ho</h1>
-      <img src="images/CindyCardImage.JPG" alt="Cindy Card"></img>
-    </div>
+    <img
+      className="avatar"
+      src="images/CindyCardImage.JPG"
+      alt="Cindy Card"
+    ></img>
   );
 }
 
 function Intro() {
   return (
-    <div className="container">
-      <h3>Cindy Boyer</h3>
+    <div>
+      <h1>Cindy Boyer</h1>
       <p>
         A web developer with a creative eye with the courage to dismantle and
         restart a vision. Does not fear the new and excells in taking in
@@ -37,19 +39,23 @@ function Intro() {
 
 function SkillList() {
   return (
-    <main>
-      <Skills skillTitle="React" />
-      <Skills skillTitle="Bootstrap" />
-      <Skills skillTitle="CSS" />
-      <Skills skillTitle="git" />
-    </main>
+    <div className="skill-list">
+      <Skill skillTitle="React" emoji="💛" color="#FF4E33" />
+      <Skill skillTitle="Bootstrap" emoji="💡" color="#33FFF9" />
+      <Skill skillTitle="HTML & CSS" emoji="💪" color="#63FF33" />
+      <Skill skillTitle="JavaScript" emoji="💪" color="#F7FF33" />
+      <Skill skillTitle="git" emoji="👍" color="#B633FF" />
+    </div>
   );
 }
 
-function Skills(props) {
+function Skill(props) {
   return (
-    <div>
-      <p>{props.skillTitle}</p>
+    <div className="skill" style={{ backgroundColor: props.color }}>
+      <span>
+        {props.skillTitle}
+        <span>{props.emoji}</span>
+      </span>
     </div>
   );
 }
